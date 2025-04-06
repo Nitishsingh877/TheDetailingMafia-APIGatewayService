@@ -10,6 +10,13 @@ spring:
             - Path=/api/users/**
           filters:
             - StripPrefix=0
+
+        - id: car-service-route
+          uri: lb://car-service
+          predicates:
+              - Path=/api/cars/**
+          filters:
+              - StripPrefix=0
   eureka:
     client:
       service-url:
