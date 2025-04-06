@@ -17,6 +17,12 @@ spring:
               - Path=/api/cars/**
           filters:
               - StripPrefix=0
+        - id: booking-service-route
+          uri: lb://booking-service
+          predicates:
+            - Path=/api/booking/**
+          filters:
+            - StripPrefix=0
   eureka:
     client:
       service-url:
