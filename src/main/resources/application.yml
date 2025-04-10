@@ -20,7 +20,13 @@ spring:
         - id: booking-service-route
           uri: lb://booking-service
           predicates:
-            - Path=/api/booking/**
+            - Path=/api/order/**
+          filters:
+            - StripPrefix=0
+        - id: washer-service-route
+          uri: lb://washer-service
+          predicates:
+            - Path=/api/washer/**
           filters:
             - StripPrefix=0
   eureka:
