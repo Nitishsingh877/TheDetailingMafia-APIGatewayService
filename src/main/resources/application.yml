@@ -29,6 +29,12 @@ spring:
             - Path=/api/washer/**
           filters:
             - StripPrefix=0
+        - id: payment-service-route
+          uri: lb://payment-service
+          predicates:
+            - Path=/api/payments/**
+          filters:
+            - StripPrefix=0
   eureka:
     client:
       service-url:
